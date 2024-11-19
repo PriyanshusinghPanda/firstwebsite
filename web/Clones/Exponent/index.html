@@ -1,0 +1,212 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-color: black;
+            padding: 40px;
+            font-weight: bold;
+        }
+
+        .outer {
+            background-color: black;
+            /* Existing background color */
+            width: 310px;
+            /* Existing width */
+            height: 310px;
+            /* Existing height */
+            margin: auto;
+            /* Center the container */
+            padding: 10px;
+            /* Existing padding */
+            display: flex;
+            /* Use flexbox */
+            flex-wrap: wrap;
+            /* Allow wrapping */
+            justify-content: center;
+            /* Center buttons horizontally */
+        }
+
+        button.inner {
+            background-color: rgb(246, 246, 246);
+            /* Existing button background color */
+            width: 80px;
+            /* Existing button width */
+            height: 80px;
+            /* Existing button height */
+            margin: 10px;
+            /* Existing margin */
+            display: flex;
+            /* Existing display */
+            align-items: center;
+            /* Center text vertically */
+            justify-content: center;
+            /* Center text horizontally */
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            /* Optional rounded corners */
+            cursor: pointer;
+            /* Change cursor on hover */
+            transition: background-color 0.3s;
+        }
+
+        button.inner:hover {
+            background-color: #e0e0e0;
+            /* Slightly darker shade on hover */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p id="para" style="color: red;text-align: center;">HI BRO</p>
+    </div>
+    <div class="outer">
+        <button class="inner" id="1" onclick="addText(this.id)"></button>
+        <button class="inner" id="2" onclick="addText(this.id)"></button>
+        <button class="inner" id="3" onclick="addText(this.id)"></button>
+        <button class="inner" id="4" onclick="addText(this.id)"></button>
+        <button class="inner" id="5" onclick="addText(this.id)"></button>
+        <button class="inner" id="6" onclick="addText(this.id)"></button>
+        <button class="inner" id="7" onclick="addText(this.id)"></button>
+        <button class="inner" id="8" onclick="addText(this.id)"></button>
+        <button class="inner" id="9" onclick="addText(this.id)"></button>
+    </div>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQ7FRNK"
+        style="display:none;visibility:hidden;width:0"></iframe>
+    <script>
+        window.onload = function() {
+        document.getElementById("loadingScreen").style.display = "none"; // Hides loading screen
+        document.getElementById("content").style.opacity = 1; // Shows content with a fade effect
+        }
+
+        const li = ["_", "_", "_", "_", "_", "_", "_", "_", "_"];
+        const turn = "x";
+        function addText(buttonid) {
+            const button = document.getElementById(buttonid);
+            const present = button.textContent;
+            const pa = document.getElementById("para");
+            if (present == "") {
+                button.innerText = "*";
+                li[buttonid - 1] = "x";
+                pa.innerText = li;
+                obj = checkGame(li);
+                pa.innerText = obj;
+                if ((obj == "x") || (obj == "o")) {
+                    pa.innerText = li;
+                };
+            };
+        };
+        function checkGame(li) {
+            li0 = li.slice(0, 3);
+            li1 = li.slice(3, 6);
+            li2 = li.slice(6, 9);
+            for (let i = 0; i < 3; i++) {
+                if (li0[i] == li1[i] == li2[i] == "x" || li0[i] == li1[i] == li2[i] == "o") {
+                    return li0[i]
+                } else if (li[i][0] == li[i][1] == li[i][2] == "x" || li[i][0] == li[i][1] == li[i][2] == "o") {
+                    return li[i][0]
+                };
+            };
+            if (li0[0] == li1[1] == li2[2] == "x" || li0[0] == li1[1] == li2[2] == "o" || li0[2] == li1[1] == li2[0] == "x" || li0[2] == li1[1] == li2[0] == "o") {
+                return li1[1]
+            };
+            if (!li0.includes("_") && !li1.includes("_") && !li2.includes("_")) {
+                return "DRAW"
+            };
+            return "NO WINNER"
+        };
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop After Time Delay</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f7f7f7;
+      overflow: hidden; /* Prevent scrolling during loading */
+    }
+
+    /* Loader styling */
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite; /* Spinner animation */
+    }
+
+    /* Spin animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* After page load, hide the loader */
+    .hidden .loader {
+      display: none; /* Hide the loader */
+    }
+
+    /* Once page loads, allow scrolling */
+    .hidden {
+      overflow: auto; /* Enable scrolling once the page is fully loaded */
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader element -->
+  <div class="loader"></div>
+
+  <script>
+    // Function to stop the animation after a certain period (in milliseconds)
+    function stopAfterDelay(minutes) {
+      const milliseconds = minutes * 60 * 1000; // Convert minutes to milliseconds
+
+      setTimeout(() => {
+        // Add class to hide the loader after the delay
+        document.body.classList.add('hidden');
+      }, milliseconds);
+    }
+
+    // Call the function to stop after 2 minutes
+    stopAfterDelay(0.1); // Stop the loader after 2 minutes (120,000 ms)
+  </script>
+</body>
+</html>

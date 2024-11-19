@@ -1,0 +1,25 @@
+/* div.header {
+    background-color: aqua;
+    margin: 0px;
+
+} */
+
+#logo {
+    width: 1.5rem !important;
+}
+
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+.header {
+    width: 100%; /* Make header full width */
+    height: auto; /* Adjust height based on content */
+    background-color: #f0f0f0; /* Optional background color */
+    position: relative; /* Positioning if needed */
+}
+.logo {
+    display: flex;
+    align-items: center; /* Center logo vertically */
+    padding: 10px; /* Optional padding for spacing */
+}
