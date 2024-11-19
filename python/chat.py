@@ -1,6 +1,5 @@
 # from openai import OpenAI
 # import requests
-# apikey = "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"
 
 # url = 'https://api.openai.com/v1/chat/completions'
 
@@ -32,7 +31,6 @@
 # # import openai
 # # import time
 # # client = openai.OpenAI()
-# # openai.api_key = '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'
 
 
 # # def get_response(prompt):
@@ -58,7 +56,6 @@
 # from openai import OpenAI
 
 # # Replace with your actual OpenAI API key
-api_key = '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'
 
 # client = OpenAI(api_key=api_key)
 
